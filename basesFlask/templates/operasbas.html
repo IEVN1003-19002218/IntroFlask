@@ -1,0 +1,58 @@
+{% extends "layouts.html" %}
+ 
+{% block container %}
+ 
+<form action="/operasbas" method="post">
+ 
+<div class="mb-3">
+ 
+    <label for="n1" class="form-label">Numero 1:</label>
+<input type="number" class="form-control" id="num1" name="num1" required>
+</div>
+<div class="mb-3">
+ 
+    <label for="n2" class="form-label">Numero 2:</label>
+<input type="number" class="form-control" id="num2" name="num2" requierd>
+</div>
+<label class="form-label">Seleccione la operación:</label>
+ 
+            <div class="form-check">
+<input class="form-check-input" type="radio" name="operaciones" value="sumar" checked>
+<label class="form-check-label">Sumar</label>
+</div>
+ 
+            <div class="form-check">
+<input class="form-check-input" type="radio" name="operaciones" value="restar">
+<label class="form-check-label">Restar</label>
+</div>
+ 
+            <div class="form-check">
+<input class="form-check-input" type="radio" name="operaciones" value="multiplicar">
+<label class="form-check-label">Multiplicar</label>
+</div>
+ 
+ 
+<button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+ 
+
+{% if operacion == 'sumar' %}
+    <h1>
+        La suma de {{ num1 }} + {{ num2 }} = {{ "%.2f"|format(resultado) }}
+    </h1>
+
+{% elif operacion == 'restar' %}
+    <h1>
+        La resta de {{ num1 }} - {{ num2 }} = {{ "%.2f"|format(resultado) }}
+    </h1>
+
+{% elif operacion == 'multiplicar' %}
+    <h1>
+        La multiplicacion de {{ num1 }} x {{ num2 }} = {{ "%.2f"|format(resultado) }}
+    </h1>
+
+{% endif %}
+
+ 
+ 
+{% endblock %}

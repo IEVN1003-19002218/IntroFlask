@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que huevota</title>
+</head>
+<body>
+
+    {% extends "layouts.html"%}
+    {%block container %}
+
+    <h1>Material PWA</h1>
+    <h2>IEVN_1003 - JINJA2</h2>
+    
+    <h1>{{titulo}}</h1>
+
+    {%for nom in listado%}
+        <li>{{nom}}</li>
+    {%endfor%}
+
+    {% endblock %}
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+{% extends "layouts.html" %}
+
+{% block container %}
+
+<h1>Distancia entre dos puntos</h1>
+
+<form action="/distancia" method="post">
+
+    <h3>Punto A</h3>
+
+    <div class="mb-3">
+        <label for="x1">Coordenada X1:</label>
+        <input type="number" step="any" id="x1"
+               name="x1" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="y1">Coordenada Y1:</label>
+        <input type="number" step="any" id="y1"
+               name="y1" class="form-control" required>
+    </div>
+
+    <h3>Punto B</h3>
+
+    <div class="mb-3">
+        <label for="x2">Coordenada X2:</label>
+        <input type="number" step="any" id="x2"
+               name="x2" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="y2">Coordenada Y2:</label>
+        <input type="number" step="any" id="y2"
+               name="y2" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Calcular distancia
+    </button>
+
+</form>
+
+{% if request.method == 'POST' %}
+
+<h2>
+    La distancia es: {{ "%.2f"|format(resultado) }}
+</h2>
+
+{% endif %}
+
+{% endblock %}
